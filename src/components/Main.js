@@ -44,7 +44,7 @@ const Main = () => {
         const duration = 2000; // 애니메이션 시간 (밀리초)
         const frameRate = 60; // 초당 프레임 수
         const totalFrames = Math.round((duration / 1000) * frameRate);
-        const counter = document.getElementById('count-up-number');
+        const counters = document.querySelectorAll('.count-up-number');
 
         let currentNumber = 0;
         const increment = targetNumber / totalFrames;
@@ -55,33 +55,37 @@ const Main = () => {
 
         const updateCounter = () => {
             currentNumber += increment;
-
-            if (counter) {
-                // 숫자 표시
-                counter.textContent = Math.floor(currentNumber).toLocaleString();
-
-                // 색상 변화 계산
-                const progress = Math.min(currentNumber / targetNumber, 1); // 0에서 1 사이 값
-                const currentColor = {
-                    r: Math.floor(startColor.r + (targetColor.r - startColor.r) * progress),
-                    g: Math.floor(startColor.g + (targetColor.g - startColor.g) * progress),
-                    b: Math.floor(startColor.b + (targetColor.b - startColor.b) * progress),
-                };
-
-                // 색상 적용
-                counter.style.color = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
-            }
-
+    
+            counters.forEach(counter => {
+                if (counter) {
+                    // 숫자 업데이트
+                    counter.textContent = Math.floor(currentNumber).toLocaleString();
+    
+                    // 색상 변화 계산
+                    const progress = Math.min(currentNumber / targetNumber, 1);
+                    const currentColor = {
+                        r: Math.floor(startColor.r + (targetColor.r - startColor.r) * progress),
+                        g: Math.floor(startColor.g + (targetColor.g - startColor.g) * progress),
+                        b: Math.floor(startColor.b + (targetColor.b - startColor.b) * progress),
+                    };
+    
+                    // 색상 적용
+                    counter.style.color = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
+                }
+            });
+    
             if (currentNumber < targetNumber) {
                 requestAnimationFrame(updateCounter);
             } else {
-                if (counter) {
-                    counter.textContent = targetNumber.toLocaleString();
-                    counter.style.color = `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`; // 최종 색상 고정
-                }
+                counters.forEach(counter => {
+                    if (counter) {
+                        counter.textContent = targetNumber.toLocaleString();
+                        counter.style.color = `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`;
+                    }
+                });
             }
         };
-
+    
         requestAnimationFrame(updateCounter);
     }, []);
 
@@ -102,7 +106,7 @@ const Main = () => {
                     합리적인 가격으로<br />고퀄리티 웹, 앱 개발<br />
                 </div>
                 <div className='main-section1-title-content'>
-                    <span id="count-up-number"> 0</span> 원부터 만나는 개발,<br /> 아이디어를 실현하세요 !
+                    <span className="count-up-number"> 0</span> 원부터 만나는 개발,<br /> 아이디어를 실현하세요 !
                 </div>
                 <div className='main-section1-submit-btn'>
                     프로젝트 문의
@@ -219,7 +223,7 @@ const Main = () => {
           </div>
         </div>
         <div className='main-section6-ending-container'>
-        <div className='main-section6-ending-title'>최저 <span id="count-up-number"> 0</span>원부터 시작하는 개발</div>
+        <div className='main-section6-ending-title'>최저 <span className="count-up-number">0</span>원부터 시작하는 개발</div>
         <div className='main-section6-ending-content'>지금 문의하세요</div>
         <div className='main-section1-submit-btn'>프로젝트 문의</div>
         </div>
