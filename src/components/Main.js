@@ -1,15 +1,23 @@
-import React, { useState, useEffect,  } from 'react';
+import React, { useState, useEffect, } from 'react';
 import '../css/Main.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faLightbulb, faPaintBrush, faCode, faRocket } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faPaintBrush, faCode, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 
 const Main = () => {
 
-    const [width, setWidth] = useState(100);   
-
+    const [width, setWidth] = useState(100);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const scrollToTop = (e) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        e.preventDefault();
+    };
+    const scrollToSection2 = (e) => {
+        window.scrollTo({ top: 1500, behavior: 'smooth' });
+        e.preventDefault();
+    };
     useEffect(() => {
         AOS.init({
             duration: 1000, // 애니메이션 지속 시간 설정 (선택 사항)
@@ -38,6 +46,34 @@ const Main = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const screenWidth = window.innerWidth;
+            let scrollYMin, scrollYMax;
+
+            if (screenWidth <= 768) {
+                // 모바일 화면
+                scrollYMin = 1200;
+                scrollYMax = 3400;
+            } else {
+                // 데스크탑 화면
+                scrollYMin = 1200;
+                scrollYMax = 5500;
+            }
+
+            if (window.scrollY >= scrollYMin && window.scrollY <= scrollYMax) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         const targetNumber = 50000;
@@ -53,14 +89,16 @@ const Main = () => {
         const targetColor = { r: 134, g: 196, b: 165 };
         const startColor = { r: 255, g: 255, b: 255 }; // 초기 색상 (흰색)
 
+
+
         const updateCounter = () => {
             currentNumber += increment;
-    
+
             counters.forEach(counter => {
                 if (counter) {
                     // 숫자 업데이트
                     counter.textContent = Math.floor(currentNumber).toLocaleString();
-    
+
                     // 색상 변화 계산
                     const progress = Math.min(currentNumber / targetNumber, 1);
                     const currentColor = {
@@ -68,12 +106,12 @@ const Main = () => {
                         g: Math.floor(startColor.g + (targetColor.g - startColor.g) * progress),
                         b: Math.floor(startColor.b + (targetColor.b - startColor.b) * progress),
                     };
-    
+
                     // 색상 적용
                     counter.style.color = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
                 }
             });
-    
+
             if (currentNumber < targetNumber) {
                 requestAnimationFrame(updateCounter);
             } else {
@@ -85,12 +123,18 @@ const Main = () => {
                 });
             }
         };
-    
+
         requestAnimationFrame(updateCounter);
     }, []);
 
     return (
-        <div className="main-container">
+        <div className={`main-container ${isScrolled ? 'scrolled' : ''}`}>
+            <div className='top-Btn-container'>
+            <button class="top-Btn" onClick={scrollToTop}>
+                <svg height="1.2em" class="top-arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+                <p class="top-text">Back to Top</p>
+            </button>
+            </div>
             <div className="main-section1">
                 <video
                     className="background-video"
@@ -110,6 +154,19 @@ const Main = () => {
                 </div>
                 <div className='main-section1-submit-btn'>
                     프로젝트 문의
+                </div>
+                <div class="main__action" onClick={scrollToSection2}>
+                    <a class="main__scroll" href="#">
+                        <div class="main__scroll-box">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="rgba(28,28,30,1)">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <span class="main__scroll-text">Scroll</span>
+                    </a>
                 </div>
             </div>
             <div className='main-section2'>
@@ -191,44 +248,70 @@ const Main = () => {
                     style={{ width: `${width}%` }} // 스크롤에 따라 변경되는 너비
                 >
                 </div>
-                <div className="main-section4-title" data-aos="fade-up">찾기 힘들었던<br/> 맞춤형 개발사</div>
+                <div className="main-section4-title" data-aos="fade-up">찾기 힘들었던<br /> 맞춤형 개발사</div>
             </div>
             <div className='main-section5'>
-                <div className='main-section5-title' >잠깐의 의뢰가 아닌,<br/>서비스와 함께 성장하는 마음으로</div>
-                <img src="../../images/123.png" alt="img" className='main-section5-title-img' data-aos="fade-up" data-aos-delay="100"/>
-                <div className='main-section5-content1-container' data-aos="fade-up"  >
-                <div className='main-section5-content1'>기획부터 배포까지<br/></div>
-                <div className='main-section5-content1-1'>JM과 한번에</div>
-                <div className='main-section5-content1-2'>아이디어만 있어도 괜찮아요.<br/> A부터 Z까지 맘편히 맡겨주세요</div>
+                <div className='main-section5-title' >잠깐의 의뢰가 아닌,<br />서비스와 함께 성장하는 마음으로</div>
+                <img src="../../images/123.png" alt="img" className='main-section5-title-img' data-aos="fade-up" data-aos-delay="100" />
+                <div className='main-section5-content1-container'  >
+                    <div className='main-section5-content1'>기획부터 배포까지<br /></div>
+                    <div className='main-section5-content1-1'>JM과 한번에</div>
+                    <div className='main-section5-content1-2'>아이디어만 있어도 괜찮아요.<br /> A부터 Z까지 맘편히 맡겨주세요</div>
                 </div>
             </div>
             <div className="main-section6">
-      <div className="main-section6-content-container">
-        <div className="main-section6-process">
-          <div className="main-section6-process-step"  data-aos="fade-up" data-aos-delay="100">
-            <FontAwesomeIcon icon={faLightbulb} className="main-section6-process-icon" />
-            <div className="main-section6-process-title">기획</div>
-          </div>
-          <div className="main-section6-process-step"  data-aos="fade-up" data-aos-delay="200">
-            <FontAwesomeIcon icon={faPaintBrush} className="main-section6-process-icon" />
-            <div className="main-section6-process-title">디자인</div>
-          </div>
-          <div className="main-section6-process-step"  data-aos="fade-up" data-aos-delay="300">
-            <FontAwesomeIcon icon={faCode} className="main-section6-process-icon" />
-            <div className="main-section6-process-title">개발</div>
-          </div>
-          <div className="main-section6-process-step"  data-aos="fade-up" data-aos-delay="400">
-            <FontAwesomeIcon icon={faRocket} className="main-section6-process-icon" />
-            <div className="main-section6-process-title">배포</div>
-          </div>
-        </div>
-        <div className='main-section6-ending-container'>
-        <div className='main-section6-ending-title'>최저 <span className="count-up-number">0</span>원부터 시작하는 개발</div>
-        <div className='main-section6-ending-content'>지금 문의하세요</div>
-        <div className='main-section1-submit-btn'>프로젝트 문의</div>
-        </div>
-      </div>
-    </div>
+                <div className="main-section6-content-container">
+                    <div className="main-section6-process">
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="100">
+                            <FontAwesomeIcon icon={faLightbulb} className="main-section6-process-icon" />
+                            <div className="main-section6-process-title">기획</div>
+                        </div>
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="200">
+                            <FontAwesomeIcon icon={faPaintBrush} className="main-section6-process-icon" />
+                            <div className="main-section6-process-title">디자인</div>
+                        </div>
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="300">
+                            <FontAwesomeIcon icon={faCode} className="main-section6-process-icon" />
+                            <div className="main-section6-process-title">개발</div>
+                        </div>
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="400">
+                            <FontAwesomeIcon icon={faRocket} className="main-section6-process-icon" />
+                            <div className="main-section6-process-title">배포</div>
+                        </div>
+                    </div>
+                    <div className='main-section6-content'>
+                        <div className='main-section6-content-content' data-aos="fade-up" data-aos-delay="200">
+                            <p data-aos="fade-up" data-aos-delay="50">복잡한</p> 프로세스,</div>
+                        <div className='main-section6-content-content2' data-aos="fade-up" data-aos-delay="200">
+                            <p data-aos="fade-up" data-aos-delay="50">많은</p> 초기 비용 힘드셨죠 ?
+                        </div>
+                    </div>
+                    <div className='main-section6-content1'>
+                        <div class="section6-card">
+                            <div class="section6-loader">
+                                <div class="section6-words">
+                                    <span class="section6-word"></span>
+                                    <span class="section6-word">신속</span>
+                                    <span class="section6-word">정확</span>
+                                    <span class="section6-word">친절</span>
+                                    <span class="section6-word"></span>
+                                </div>
+                                <p>한 서비스로</p>
+                            </div>
+                            <div className='section6-content1-text' data-aos="fade-up" >최고의 만족도를 약속드릴게요</div>
+                        </div>
+                        <img src="../../images/123.png" alt="img" className='main-section6-content1-img' data-aos="fade-up" data-aos-delay="100" />
+                    </div>
+
+                </div>
+            </div>
+            <div className='main-section7'>
+                <div className='main-section7-container'>
+                    <div className='main-section7-title'><span className="count-up-number">0</span>원부터 만나는 개발</div>
+                    <div className='main-section7-content'>아이디어를 실현하세요 !</div>
+                    <div className='main-section7-submit-btn'>프로젝트 문의</div>
+                </div>
+            </div>
         </div>
     );
 }

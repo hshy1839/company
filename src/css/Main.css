@@ -443,7 +443,7 @@ html, body {
 .main-section6 {
   padding-left: 10%;
   padding-right: 10%;
-  height: 140vh;
+  height: 250vh;
   display: flex;
   z-index: 0;
   position: relative;
@@ -470,6 +470,7 @@ html, body {
   margin-top: 10%;
 }
 .main-section6-process {
+  margin-top: 10%;
   display: flex;
   flex-direction: row; /* 가로 정렬 */
   justify-content: center; /* 부모 요소 내에서 정렬 */
@@ -496,16 +497,215 @@ html, body {
   font-weight: bold;
   white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
-.main-section6-ending-container {
+.main-section6-content {
   margin-top: 20%;
-  justify-items: center;
+  text-align: right;
 }
-.main-section6-ending-title {
+.main-section6-content-content {
+  font-size: 80px;
+  font-weight: bold;
+}
+.main-section6-content-content2 {
+  margin-top: 5%;
+  font-size: 80px;
+  font-weight: bold;
+}
+.main-section6-content p {
+  color: rgb(115, 0, 255);
+}
+.main-section6-content1 {
+  display: flex;
+  margin-top: 20%;
+  font-size: 50px;
+  height: 50vh; /* 화면 전체 높이를 차지하도록 설정 */
+  font-weight: bold;
+}
+.section6-card {
+  /* color used to softly clip top and bottom of the .words container */
+  background-color: var(--bg-color);
+  width: 100%;
+}
+.section6-loader {
+  margin-top: 25%;
+  justify-self: left;
+  color:black;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 60px;
+  height: 100px;
+  display: flex;
+}
+.section6-words {
+  overflow: hidden;
+  position: relative;
+}
+.section6-words::after {
+  content: "";
+  inset: 0;
+  z-index: 20;
+}
+
+.section6-word {
+  display: flex;
+  height: 100%;
+  font-weight: bold;
+  color: #2b5ffc;
+  animation: spin_4991 4s infinite;
+}
+
+@keyframes spin_4991 {
+  10% {
+    transform: translateY(-102%);
+  }
+
+  25% {
+    transform: translateY(-100%);
+  }
+
+  35% {
+    transform: translateY(-202%);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+
+  60% {
+    transform: translateY(-302%);
+  }
+
+  75% {
+    transform: translateY(-300%);
+  }
+
+  85% {
+    transform: translateY(-402%);
+  }
+
+  100% {
+    transform: translateY(-400%);
+  }
+}
+.section6-content1-text {
+  font-size: 30px;
+  color: gray;
+}
+.main-section6-purple-text {
+  color: purple;
+}
+.main-section6-content1-img {
+  width: 70%;
+  height: 120%;
+}
+.main-section7 {
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 60vh;
+  background-color: rgba(0, 0, 0, 0.853);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-section7-container {
+  justify-items: center;
+  align-items: center;
+  position: relative; /* 필터가 상속되지 않게 설정 */
+}
+
+.main-section7-title {
   font-size: 3rem;
   font-weight: bold;
+  color: white;
   margin-top: 10%;
 }
-.main-section6-ending-content {
+
+.main-section7-content {
   font-size: 3rem;
   font-weight: bold;
+  color: white;
 }
+
+/* 버튼에 필터 적용하지 않기 위해 별도로 설정 */
+.main-section7-submit-btn {
+  margin-top: 5%;
+  background-color: rgb(115, 0, 255);
+  cursor: pointer;
+  color: white;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  transition: background-color 0.5s ease, color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50px;
+  position: relative; /* 버튼을 다른 레이어로 올리기 위해 설정 */
+  z-index: 1; /* 필터가 영향을 미치지 않게 */
+}
+
+.main-section7-submit-btn:hover {
+  background-color: rgb(85, 0, 170); /* 호버 시 배경색 변경 */
+}
+.top-Btn-container {
+  position: fixed;
+  top: 85%;
+  z-index: 100;
+  left: 93%;
+}
+
+.top-Btn {
+ width: 50px;
+ height: 50px;
+ background: linear-gradient(#44ea76, #39fad7);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 50%;
+ cursor: pointer;
+ position: relative;
+ border: none;
+}
+
+.top-arrow path {
+ fill: white;
+}
+
+.top-text {
+ font-size: 0.9em;
+ width: 100px;
+ position: absolute;
+ color: gray;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ bottom: -18px;
+ font-weight: bold;
+ opacity: 0;
+ transition-duration: .7s;
+}
+
+.top-Btn:hover .top-text {
+ opacity: 1;
+ transition-duration: .7s;
+}
+
+.top-Btn:hover .top-arrow {
+ animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-bottom {
+ 0% {
+   transform: translateY(10px);
+   opacity: 0;
+ }
+
+ 100% {
+   transform: translateY(0);
+   opacity: 1;
+ }
+}
+
