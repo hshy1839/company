@@ -1,0 +1,299 @@
+.devstory-container {
+    width: 100%;
+    background-color: white;
+    position: relative;
+}
+.devstory-section1, .devstory-section2, .devstory-section3 { 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.devstory-section1-headline-container {
+    display: flex;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.devstory-section1-headline {
+    font-size: 90px;
+    margin-right: 40%;
+}
+.devstory-section1-headline-link {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: gray;
+    /* color: black; */
+}
+.devstory-section1-headline-link a  {
+    text-decoration: none;
+    color: gray;
+}
+.devstory-section1-headline-link a:last-child {
+    color: black;
+    font-weight: bold;
+}
+.devstory-section1-headline-link-bar {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: -1%;
+}
+.devstory-section1-context-container {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.devstory-section1-image1 {
+    height: 300px;
+    background-image: url("../../public/images/codingimage.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.devstory-section1-context {
+    margin-top: 5%;
+    line-height: 2;
+    font-size: 26px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: left;
+    align-self: center;
+    font-weight: 500;
+}
+.devstory-section2 {
+    width: 100%;
+    height: 1000px;
+}
+.devstory-section2-headline {
+    text-align: left;
+    margin-right: 0%;
+    margin-top: 2%;
+    padding: 0;
+    font-size: 130px;
+}
+.devstory-section2-context-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 38%;
+}
+.devstory-section2-context-container-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+    text-align: left;
+    width: 60%; 
+}
+.devstory-section2-context-title {
+    font-size:  60px;
+    margin-right: 30%;
+    width: 5%;
+
+}
+.devstory-section2-context-context {
+    font-size: 35px;
+}
+.devstory-section3 {
+    width: 100%;
+    margin-top: 0%;
+    padding: 0;
+    height: 1000px;
+    margin-bottom: 10%;
+}
+.devstory-section3-headline {
+    text-align: center;
+    padding: 0;
+    margin-top: 0%;
+    width: 100%;
+    font-size: 130px;
+}
+.devstory-section3-context-container{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 25%;
+}
+.devstory-section3-context-box {
+    border-top: 5px solid black;
+    width: 550px;
+    height: 100px;
+    margin-right: 5%;
+    text-align: left;
+}
+.devstory-section3-context-box-top{
+    color: lightgray;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 50px;
+}
+.devstory-section3-context-box-title {
+    font-size: 70px;
+    margin-top: 15%;
+    font-weight: bold;
+}
+.devstory-section3-context-box-context {
+    font-size: 35px;
+    margin-top: 7%;
+    font-weight: bold;
+}
+.devstory-section3-context-hover-btn {
+    font-size: 30px;
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 768px) {
+    .devstory-container {
+        overflow-x: hidden;
+    }
+    .devstory-section1-headline-container {
+        display: flex;
+        margin-top: 40%;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .devstory-section1, .devstory-section2, .devstory-section3 {
+        position: relative;
+    }
+    .devstory-section1-headline {
+        text-align: left;
+        font-size: 50px;
+        width: 100%;
+        margin-left: 5%;
+    }
+    .devstory-section1-headline-link {
+        display: flex;
+        flex-direction: row;
+        font-size: 13px;
+        margin-left: 5%;
+        text-decoration: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: gray;
+        margin-top: 5%;
+        /* color: black; */
+    }
+    .devstory-section1-headline-link-bar {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: -1%;
+    }
+    .devstory-section1-context-container {
+        margin-top: 15%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .devstory-section1-image1 {
+        height: 200px;
+        background-image: url("../../public/images/codingimage.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .devstory-section1-context {
+        margin-top: 15%;
+        padding: 20px;
+        line-height: 2;
+        font-size: 16px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: left;
+        align-self: center;
+        font-weight: 500;
+    }
+    .devstory-section2 {
+        width: 100%;
+        margin-top: 0%;
+        padding:0;
+        height: auto;
+    }
+    .devstory-section2-headline {
+        text-align: center;
+        margin-top: 15%;
+        font-size: 50px;
+    }
+    .devstory-section2-context-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0%;
+        padding: 25px;
+        margin-top: 0;
+    }
+    .devstory-section2-context-container-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+        text-align: left;
+        width: 100%; 
+    }
+    .devstory-section2-context-title {
+        font-size:  40px;
+        margin-right: 30%;
+        width: 5%;
+    
+    }
+    .devstory-section2-context-context {
+        font-size: 16px;
+    }
+    .devstory-section3 {
+        width: 100%;
+        margin-top: 30%;
+        padding: 0;
+        height: auto;
+        margin-bottom: 20%;
+    }
+    .devstory-section3-headline {
+        margin-right: 0%;
+        margin-left: 0%;
+        margin-top: 0%;
+        padding: 0;
+        font-size: 50px;
+    }
+    .devstory-section3-context-container{
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0%;
+        padding: 30px;
+    }
+    .devstory-section3-context-box {
+        border-top: 5px solid black;
+        width: 100%;
+        height: auto;
+        margin-right: 5%;
+        text-align: left;
+    }
+    .devstory-section3-context-box-top{
+        color: lightgray;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    .devstory-section3-context-box-title {
+        font-size: 40px;
+        margin-top: 10%;
+        font-weight: bold;
+    }
+    .devstory-section3-context-box-context {
+        font-size: 30px;
+        margin-top: 7%;
+        font-weight: bold;
+    }
+    .devstory-section3-context-hover-btn {
+        font-size: 30px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+       
+}
