@@ -598,7 +598,7 @@ html, body {
   height: 120%;
 }
 .main-section7 {
-  height: 60vh;
+  height: 60%;
   background-color: rgba(0, 0, 0, 0.853);
   display: flex;
   flex-direction: column;
@@ -614,6 +614,7 @@ html, body {
 }
 
 .main-section7-container {
+  margin-bottom: 5%;
   justify-items: center;
   align-items: center;
   position: relative; /* 필터가 상속되지 않게 설정 */
