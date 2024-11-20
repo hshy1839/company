@@ -598,14 +598,19 @@ html, body {
   height: 120%;
 }
 .main-section7 {
-  padding-left: 10%;
-  padding-right: 10%;
   height: 60vh;
   background-color: rgba(0, 0, 0, 0.853);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+}
+.section7-background-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit:fill; /* 비디오가 섹션을 채우도록 설정 */
+  z-index: -1; /* 내용 뒤로 배치 */
 }
 
 .main-section7-container {
@@ -675,7 +680,7 @@ html, body {
 }
 
 .top-text {
- font-size: 0.9em;
+ font-size: 1em;
  width: 100px;
  position: absolute;
  color: gray;

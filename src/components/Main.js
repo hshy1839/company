@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faPaintBrush, faCode, faRocket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 const Main = () => {
@@ -12,10 +13,6 @@ const Main = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const scrollToTop = (e) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        e.preventDefault();
-    };
-    const scrollToSection2 = (e) => {
-        window.scrollTo({ top: 1500, behavior: 'smooth' });
         e.preventDefault();
     };
     useEffect(() => {
@@ -152,22 +149,10 @@ const Main = () => {
                 <div className='main-section1-title-content'>
                     <span className="count-up-number"> 0</span> 원부터 만나는 개발,<br /> 아이디어를 실현하세요 !
                 </div>
-                <div className='main-section1-submit-btn'>
+                <Link to="/contact" className='main-section1-submit-btn'>
                     프로젝트 문의
-                </div>
-                <div class="main__action" onClick={scrollToSection2}>
-                    <a class="main__scroll" href="#">
-                        <div class="main__scroll-box">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="rgba(28,28,30,1)">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <span class="main__scroll-text">Scroll</span>
-                    </a>
-                </div>
+                </Link>
+               
             </div>
             <div className='main-section2'>
                 <div className='main-section2-title' data-aos="fade-up">
@@ -306,10 +291,20 @@ const Main = () => {
                 </div>
             </div>
             <div className='main-section7'>
+            <video
+                    className="section7-background-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/images/meeting_guys.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
                 <div className='main-section7-container'>
                     <div className='main-section7-title'><span className="count-up-number">0</span>원부터 만나는 개발</div>
                     <div className='main-section7-content'>아이디어를 실현하세요 !</div>
-                    <div className='main-section7-submit-btn'>프로젝트 문의</div>
+                    <Link to="/contact" className='main-section7-submit-btn'>프로젝트 문의</Link>
                 </div>
             </div>
         </div>
