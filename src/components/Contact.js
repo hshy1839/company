@@ -97,7 +97,7 @@ const Contact = () => {
                 </div>
             </div>
             <div className='contact-section2'>
-                <div className='contact-section2-title'>JMsoft</div>
+                <Link to={'/'} className='contact-section2-title'>JMsoft</Link>
 
                 {/* 방문 경로 */}
                 <div className='contact-section2-visit-container'>
