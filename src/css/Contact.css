@@ -302,6 +302,7 @@ label[for="file-upload-input"].disabled {
     cursor: pointer;
     color: white;
     width: 300px;
+    border: none;
     height: 80px;
     text-align: center;
     display: flex; 

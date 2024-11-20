@@ -1,137 +1,55 @@
 
 .footer-container {
-    height: 300px;
-    width: 100%;
-    overflow-x: hidden;
-    background-color: black;
-    border-top: 2px solid black;
-    bottom: 0;
+  height: 300px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: black;
+  bottom: 0;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 1);
 }
-.footer-top {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-bottom: 0.1px solid gray;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-}
-.footer-top-menu{
-    color: white;
-    margin-top: 1%;
-    margin-right: auto;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-}
-.footer-menu-item {
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-    transition: 0.2s ease color;
-}
-.footer-menu-item:hover {
-    color: gray;
-}
-.footer-menu-item-bar{
-    padding: 20px;
-}
-.card {
-    margin-left: auto;
-    margin-right: 0%;
-    display: flex;
-    height: 50px;
-    width: 200px;
-  }
-  
-  .card svg {
-    position: absolute;
-    display: flex;
-    width: 60%;
-    height: 100%;
-    font-size: 24px;
-    font-weight: 700;
-    opacity: 1;
-    transition: opacity 0.25s;
-    z-index: 2;
-    cursor: pointer;
-  }
-  
-  .card .social-link1,.card .social-link2,.card .social-link3,.card .social-link4 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    color: whitesmoke;
-    font-size: 24px;
-    text-decoration: none;
-    transition: 0.25s;
-    border-radius: 50px;
-  }
-  
-  .card svg {
-    transform: scale(1);
-  }
-  
-  .card .social-link1:hover {
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-    animation: bounce_613 0.4s linear;
-  }
-  
-  .card .social-link2:hover {
-    background-color: #00ccff;
-    animation: bounce_613 0.4s linear;
-  }
-  
-  .card .social-link3:hover {
-    background-color: #5865f2;
-    animation: bounce_613 0.4s linear;
-  }
-  
-  .card .social-link4:hover {
-    background-color: #12a50b;
-    animation: bounce_613 0.4s linear;
-  }
-  
-  @keyframes bounce_613 {
-    40% {
-      transform: scale(1.4);
-    }
-  
-    60% {
-      transform: scale(0.8);
-    }
-  
-    80% {
-      transform: scale(1.2);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
-  }
   .footer-body-container{
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
+    padding: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
   }
-  .footer-body-left {
+  .footer-body-container-context {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    justify-content: center;
+  }
+  .footer-body-container-context1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     color: white;
-    margin-left: 20%;
+    text-align: right;
+    justify-content: center;
   }
   .footer-body-logo {
+    user-select: none;
     font-size: 70px;
     text-align: left;
+    font-weight: bold;
+    color: white;
   }
   .footer-body-copyright {
+    user-select: none;
     color: gray;
+  }
+  .footer-body-company {
+    user-select: none;
+    font-size: 0.8rem;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-bottom: 5px;
   }
 
   @media only screen and (max-width: 768px) {
@@ -172,15 +90,7 @@
     .footer-menu-item-bar{
         padding: 10px;
     }
-    .card {
-        margin-top: 0%;
-        justify-content: center;
-        margin-left: 0;
-        margin-right: 0;
-        display: flex;
-        height: 40px;
-        width: 150px;
-      }
+    
       
       .footer-body-container{
         display: flex;
