@@ -237,7 +237,7 @@ const Main = () => {
             </div>
             <div className='main-section5'>
                 <div className='main-section5-title' >잠깐의 의뢰가 아닌,<br />서비스와 함께 성장하는 마음으로</div>
-                <img src="../../images/123.png" alt="img" className='main-section5-title-img' data-aos="fade-up" data-aos-delay="100" />
+                <img src="../../images/growth.jpg" alt="img" className='main-section5-title-img' data-aos="fade-up" data-aos-delay="200" />
                 <div className='main-section5-content1-container'  >
                     <div className='main-section5-content1'>기획부터 배포까지<br /></div>
                     <div className='main-section5-content1-1'>JM과 한번에</div>
@@ -255,11 +255,11 @@ const Main = () => {
                             <FontAwesomeIcon icon={faPaintBrush} className="main-section6-process-icon" />
                             <div className="main-section6-process-title">디자인</div>
                         </div>
-                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="400">
                             <FontAwesomeIcon icon={faCode} className="main-section6-process-icon" />
                             <div className="main-section6-process-title">개발</div>
                         </div>
-                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div className="main-section6-process-step" data-aos="fade-up" data-aos-delay="600">
                             <FontAwesomeIcon icon={faRocket} className="main-section6-process-icon" />
                             <div className="main-section6-process-title">배포</div>
                         </div>
